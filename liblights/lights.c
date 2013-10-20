@@ -237,7 +237,7 @@ static int set_light_backlight(struct light_device_t* dev,
   pthread_mutex_lock(&g_lock);
   g_backlight = brightness;
   err = write_int(LCD_BACKLIGHT_FILE, brightness);
-  err = write_int(BUTTON_FILE, brightness ? 255 : 0);
+  err = write_int(BUTTONS_FILE, brightness);
   pthread_mutex_unlock(&g_lock);
   return err;
 }
